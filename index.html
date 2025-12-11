@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .message {
+      text-align: center;
+      background: #fff;
+      padding: 30px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+  <script>
+    // Your tokens and target URLs
+    const redirectMap = {
+      "optest": "https://google.Com",
+      "domainred": "https://www.eartrissin.com/TEOZUGpF502UQ2g03IAuWe_va3FDVxfuRJpEmQ3C1lHKiOztj-LaHiEk_2oSME-UGLh3PNmYNLmagKBjr_OezQ~~/2/ho/21",
+      // Add more token: "targetURL" pairs here
+    };
+
+    const token = window.location.search.substring(1); // Gets token from ?token
+    const redirectTo = redirectMap[token];
+
+    if (redirectTo) {
+      window.location.href = redirectTo;
+    } else {
+      window.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('message').innerHTML = `
+          <h2>⚠️ Invalid or expired link</h2>
+          <p>Please check your URL or contact the sender.</p>
+        `;
+      });
+    }
+  </script>
+</head>
+<body>
+  <div class="message" id="message">
+    <p>Redirecting...</p>
+  </div>
+</body>
+</html>
